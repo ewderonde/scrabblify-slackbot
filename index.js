@@ -10,7 +10,7 @@ const scrabblify = (scrabbleWord) => {
     }).join(' ');
 }
 
-app.get('/', (req, res) => {
+app.post('/', (req, res) => {
     console.log(req.body);
     res.send({
         color: 'danger',
