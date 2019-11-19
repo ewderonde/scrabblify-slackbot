@@ -14,7 +14,7 @@ app.post('/', (req, res) => {
     console.log(req.body);
     res.send({
         color: 'danger',
-        text: scrabblify('Dit is een test'),
+        text: scrabblify(req.body.text || ''),
         mrkdwn_in: ['text']
       });
 });
