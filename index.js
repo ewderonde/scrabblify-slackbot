@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const scrabblify = (scrabbleWord) => {
     return Array.from(scrabbleWord).map((scrabbleWordPiece) => {
@@ -9,10 +11,13 @@ const scrabblify = (scrabbleWord) => {
 }
 
 app.get('/', (req, res) => {
-    console.log(req);
+    console.log(req.body);
     res.send({
-        text: scrabblify('Dit is een test')
-    });
+        color: 'danger',
+        text: scrabblify('Dit is een test'),
+        mrkdwn_in: ['text']
+      });
 });
 
 app.listen(process.env.PORT || 1337, () => console.log('Gator app listening on port 3000!'));
+
