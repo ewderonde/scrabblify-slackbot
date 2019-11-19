@@ -14,6 +14,7 @@ app.post('/', (req, res) => {
     console.log(req.body);
     res.send({
         color: 'danger',
+        response_type: "in_channel",
         text: scrabblify(req.body.text || ''),
         mrkdwn_in: ['text']
       });
